@@ -1,0 +1,16 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: snake-game
+  namespace: snake-game
+  labels:
+    app: snake-game
+spec:
+  to:
+    kind: Service
+    name: snake-game
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect

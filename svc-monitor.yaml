@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: snake-game-monitor
+  namespace: snake-game
+  labels:
+    app: snake-game
+spec:
+  selector:
+    matchLabels:
+      app: snake-game     # Targets your Service's metadata.labels
+  endpoints:
+  - port: http            # Exactly matches your Service's port name
+    interval: 15s         # Scrape frequency
+    path: /metrics        # Code endpoint
