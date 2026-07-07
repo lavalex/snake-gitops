@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: snake-game
-        image: docker.io/lavalex/snake-game:2f804efe7c998f6fc12770156089c997ad5c0e62
+        image: docker.io/lavalex/snake-game:de7a83d3a9114135803c3dc603cbe2dc337b07f6
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -68,7 +68,7 @@ spec:
           periodSeconds: 5
       initContainers:
       - name: wait-for-postgres
-        image: docker.io/lavalex/snake-game:2f804efe7c998f6fc12770156089c997ad5c0e62
+        image: docker.io/lavalex/snake-game:de7a83d3a9114135803c3dc603cbe2dc337b07f6
         command:
           - sh
           - -c
