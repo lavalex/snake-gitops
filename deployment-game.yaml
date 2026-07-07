@@ -72,7 +72,10 @@ spec:
           - sh
           - -c
           - |
-            until pg_isready -h postgres -p 5432; do
-              echo "waiting for postgres..."
+            echo "Waiting for postgres..."
+            # Using timeout and nc (netcat) which is common in many base images
+            # or a simple bash socket check
+            until nc -z postgres 5432; do
+              echo "Waiting for postgres..."
               sleep 2
             done
